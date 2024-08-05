@@ -6,9 +6,12 @@ this is the main app
 
 
 from flask import Flask
+from flask import jsonify
 from models import storage
 from api.v1.views import app_views
 from os import getenv
+from flask import make_response
+
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
@@ -18,6 +21,11 @@ app.register_blueprint(app_views)
 def teardown(exception):
     """Closes the current session"""
     storage.close()
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({"error": "Not Found"}), 404)
 
 
 if __name__ == "__main__":
