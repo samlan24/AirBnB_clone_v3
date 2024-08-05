@@ -5,12 +5,13 @@ this is the main app
 """
 
 
-from flask import Flask
-from flask import jsonify
-from models import storage
 from api.v1.views import app_views
-from os import getenv
 from flask import make_response
+from flask import Flask
+from flask import make_response
+from flask import jsonify
+from os import getenv
+from models import storage
 
 
 app = Flask(__name__)
