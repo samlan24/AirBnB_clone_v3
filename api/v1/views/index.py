@@ -15,7 +15,7 @@ def status():
     return jsonify(response)
 
 
-@app_views.route('/stats')
+@app_views.route('/stats', methods=['GET'])
 def stats():
     """
     retrieves the number of
@@ -27,7 +27,7 @@ def stats():
         "places": storage.count("Place"),
         "reviews": storage.count("Review"),
         "states": storage.count("State"),
-        "users": storage.count("User")
+        "users": storage.count("User"),
     }
     return jsonify(count)
 
