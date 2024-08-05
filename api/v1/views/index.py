@@ -21,7 +21,7 @@ def stats():
     retrieves the number of
     each objects by type
     """
-    counts = {
+    count = {
         "amenities": storage.count("Amenity"),
         "cities": storage.count("City"),
         "places": storage.count("Place"),
@@ -29,5 +29,5 @@ def stats():
         "states": storage.count("State"),
         "users": storage.count("User")
     }
-    return jsonify(counts)
+    return jsonify(count)
 
